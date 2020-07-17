@@ -23,6 +23,10 @@ export class StoreSubscriber {
       });
 
       this.prevState = this.store.getState();
+
+      if (process.env.NDOE_ENV === 'development') {
+        window['redux'] = this.prevState;
+      }
     });
   }
 
